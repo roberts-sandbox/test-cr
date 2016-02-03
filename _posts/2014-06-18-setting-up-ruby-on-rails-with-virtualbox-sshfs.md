@@ -8,6 +8,59 @@ tags: [Ubuntu Server, Ruby on Rails, MySQL, VirtualBox, SSHFS]
 
 #### 1. bop Introduction
 
+And you are done.  To test...
+
+4. Write a character echo program such as:
+
+    ```bash
+    #! /bin/sh
+
+    stty -F /dev/ttyHSL0 115200
+    stty -F /dev/ttyHSL0 -echo
+
+    while read X
+    do
+        echo Got: $X, echoing back $X
+        echo $X > /dev/ttyHSL0
+    done < /dev/ttyHSL0
+    ```
+
+    and execute
+
+    ```bash
+    ./echo_data.sh
+    ```
+
+5. And program the Arduino to bridge the USB serial consosole to the UART port
+
+    ```c
+    void setup() {
+      Serial1.begin(115200);
+    }
+
+    void loop() {
+      char oneChar;
+      
+      while (Serial.available() > 0) {
+                    // read the incoming byte:
+                    oneChar = Serial.read();
+                    Serial1.print(oneChar);
+      }
+        
+      while (Serial1.available() > 0) {
+                    // read the incoming byte:
+                    oneChar = Serial1.read();
+
+                    // print locally what you got
+                    Serial.print(oneChar);
+      }
+      delay(1000);
+    }
+    ```
+
+6. Now fire up the Arduino terminal and you should see characters echoed back to you.
+
+
 As a web developer, setting up a local development environment is the first issue that needs to be done before you truly start. In many cases, we have to deal with different types of tech-stacks, such as the most popular MEAN(MongoDB, Express, AngularJS & Node.js), React-fullstack(React.js, Redux, Express, MongoDB, Babel, Webpack, etc.), LAMP(Apache, MySQL & PHP), LEMP(Nginx, MySQL & PHP-FPM), Ruby on Rails and so on. Actually, most top cloud platforms nowadays have provided very easy to use "cloud launcher" that allows you to deploy apps with just a few clicks or commands. For example, [Google Cloud Platform - Cloud Launcher](https://cloud.google.com/launcher/?cat=INFRASTRUCTURE), [AWS Marketplace - Application Development](https://aws.amazon.com/marketplace/b/2649279011/ref=gtw_navlft_node_2649279011?page=1&category=2649279011), [Heroku Platform - Buildpacks](https://elements.heroku.com/buildpacks) and [DigitalOcean - DISTROS & 1-CLICK APPS](https://www.digitalocean.com/features/one-click-apps/). However, sometimes we still have to setup everything from the beginning in our local computers. For example, if you are going to launch apps on some servers without the support of "cloud launcher". In this tutorial, I will show you how to setup a complete development environment for an existing Ruby on Rails webapp (the main tech-stack is made up of Ruby on Rails, MySQL, Apache, Nginx and Ubuntu Server) on Mac OS. 
 
 
