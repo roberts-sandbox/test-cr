@@ -6,7 +6,7 @@ categories: [Development Environment]
 tags: [Ubuntu Server, Ruby on Rails, MySQL, VirtualBox, SSHFS]
 ---
 
-####1. Introduction
+#### 1. bop Introduction
 
 As a web developer, setting up a local development environment is the first issue that needs to be done before you truly start. In many cases, we have to deal with different types of tech-stacks, such as the most popular MEAN(MongoDB, Express, AngularJS & Node.js), React-fullstack(React.js, Redux, Express, MongoDB, Babel, Webpack, etc.), LAMP(Apache, MySQL & PHP), LEMP(Nginx, MySQL & PHP-FPM), Ruby on Rails and so on. Actually, most top cloud platforms nowadays have provided very easy to use "cloud launcher" that allows you to deploy apps with just a few clicks or commands. For example, [Google Cloud Platform - Cloud Launcher](https://cloud.google.com/launcher/?cat=INFRASTRUCTURE), [AWS Marketplace - Application Development](https://aws.amazon.com/marketplace/b/2649279011/ref=gtw_navlft_node_2649279011?page=1&category=2649279011), [Heroku Platform - Buildpacks](https://elements.heroku.com/buildpacks) and [DigitalOcean - DISTROS & 1-CLICK APPS](https://www.digitalocean.com/features/one-click-apps/). However, sometimes we still have to setup everything from the beginning in our local computers. For example, if you are going to launch apps on some servers without the support of "cloud launcher". In this tutorial, I will show you how to setup a complete development environment for an existing Ruby on Rails webapp (the main tech-stack is made up of Ruby on Rails, MySQL, Apache, Nginx and Ubuntu Server) on Mac OS. 
 
