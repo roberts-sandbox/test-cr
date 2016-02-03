@@ -10,7 +10,8 @@ tags: [Ubuntu Server, Ruby on Rails, MySQL, VirtualBox, SSHFS]
 
 And you are done.  To test...
 
-4. Write a character echo program such as:
+4. Write a character echo program such as boop:
+
 
     ```bash
     #! /bin/sh
